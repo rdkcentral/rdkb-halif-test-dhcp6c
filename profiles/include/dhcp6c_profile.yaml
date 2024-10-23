@@ -1,0 +1,8 @@
+# Temporary  Configuration File defined for testing purposes only.
+# All the values stated are example or reference values which are vendor-specific.
+dhcp6c:
+  config:
+    ERouter_DHCPv6:
+      ifName: "erouter0"
+    ecm_DHCPv6:
+      ifName: "wan0"
