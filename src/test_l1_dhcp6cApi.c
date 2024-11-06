@@ -139,209 +139,72 @@ void test_l1_dhcp6cApi_positive1_ert_dhcp6c_get_info(void)
         UT_FAIL("ifname  is empty string");
     }
 
-    // smState
     UT_LOG("Validating smState...");
     UT_LOG("pInfo.smState:%d\n", pInfo.smState);
-    if (pInfo.smState >= 0)
-    {
-        UT_LOG("valid smState \n");
-        UT_PASS("valid smState \n");
-    }
-    else
-    {
-        UT_LOG("Invalid smState \n");
-        UT_FAIL("Invalid smState \n");
-    }
+    UT_ASSERT(pInfo.smState >= 0);
 
     UT_LOG("Validating configAttemps...");
     UT_LOG("pInfo.configAttemps:%d\n", pInfo.configAttemps);
-    if (pInfo.configAttemps >= 0)
-    {
-        UT_LOG("valid configAttemps \n");
-        UT_PASS("valid configAttemps \n");
-    }
-    else
-    {
-        UT_LOG("Invalid configAttemps \n");
-        UT_FAIL("Invalid smStconfigAttempsate \n");
-    }
+    UT_ASSERT(pInfo.configAttemps >= 0);
 
     UT_LOG_DEBUG("Validating ipAddr");
     flg = ValdtIpV6(pInfo.ipAddr, (sizeof(pInfo.ipAddr) / sizeof(unsigned char)));
     UT_LOG_DEBUG("flg:%d\n", flg);
-    if (flg == 1)
-    {
-        UT_LOG_DEBUG("valid ipAddr \n");
-        UT_PASS("valid ipAddr \n");
-    }
-    else if (flg == 0)
-    {
-        UT_LOG_DEBUG("Invalid ipAddr \n");
-        UT_FAIL("Invalid ipAddr \n");
-    }
+    UT_ASSERT(flg == 1);
 
     UT_LOG_DEBUG("Validating prefix ");
     flg = ValdtIpV6(pInfo.prefix, (sizeof(pInfo.prefix) / sizeof(unsigned char)));
     UT_LOG_DEBUG("flg:%d\n", flg);
-    if (flg == 1)
-    {
-        UT_LOG_DEBUG("valid prefix \n");
-        UT_PASS("valid prefix \n");
-    }
-    else if (flg == 0)
-    {
-        UT_LOG_DEBUG("Invalid prefix \n");
-        UT_FAIL("Invalid prefix \n");
-    }
+    UT_ASSERT(flg == 1);
 
     UT_LOG_DEBUG("Validating gw ");
     flg = ValdtIpV6(pInfo.gw, (sizeof(pInfo.gw) / sizeof(unsigned char)));
     UT_LOG_DEBUG("flg:%d\n", flg);
-    if (flg == 1)
-    {
-        UT_LOG_DEBUG("valid gw \n");
-        UT_PASS("valid gw \n");
-    }
-    else if (flg == 0)
-    {
-        UT_LOG_DEBUG("Invalid gw \n");
-        UT_FAIL("Invalid gw \n");
-    }
+    UT_ASSERT(flg == 1);
 
     UT_LOG_DEBUG("Validating dhcpServer ");
     flg = ValdtIpV6(pInfo.dhcpServer, (sizeof(pInfo.dhcpServer) / sizeof(unsigned char)));
     UT_LOG_DEBUG("flg:%d\n", flg);
-    if (flg == 1)
-    {
-        UT_LOG_DEBUG("valid dhcpServer \n");
-        UT_PASS("valid dhcpServer \n");
-    }
-    else if (flg == 0)
-    {
-        UT_LOG_DEBUG("Invalid dhcpServer \n");
-        UT_FAIL("Invalid dhcpServer \n");
-    }
+    UT_ASSERT(flg == 1);
 
     UT_LOG_DEBUG("Validating t1...");
     UT_LOG_DEBUG("pInfo.t1:%u\n", pInfo.t1);
-    if (pInfo.t1 >= 0)
-    {
-        UT_LOG_DEBUG("valid t1 \n");
-        UT_PASS("valid t1 \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid t1 \n");
-        UT_FAIL("Invalid t1 \n");
-    }
+    UT_ASSERT(pInfo.t1 >= 0);
 
     UT_LOG_DEBUG("Validating t2...");
     UT_LOG_DEBUG("pInfo.t2:%u\n", pInfo.t2);
-    if (pInfo.t2 >= 0)
-    {
-        UT_LOG_DEBUG("valid t2 \n");
-        UT_PASS("valid t2 \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid t2 \n");
-        UT_FAIL("Invalid t2 \n");
-    }
+    UT_ASSERT(pInfo.t2 >= 0);
 
     UT_LOG_DEBUG("Validating leasetime...");
     UT_LOG_DEBUG("pInfo.leaseTime:%u\n", pInfo.leaseTime);
-    if (pInfo.leaseTime >= 0)
-    {
-        UT_LOG_DEBUG("valid leaseTime \n");
-        UT_PASS("valid leaseTime \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid leaseTime \n");
-        UT_FAIL("Invalid leaseTime \n");
-    }
+    UT_ASSERT(pInfo.leaseTime >= 0);
 
     UT_LOG_DEBUG("Validating leaseGottime...");
     UT_LOG_DEBUG("pInfo.leaseGotTime:%u\n", pInfo.leaseGotTime);
-    if (pInfo.leaseGotTime >= 0)
-    {
-        UT_LOG_DEBUG("valid leaseGotTime \n");
-        UT_PASS("valid leaseGotTime \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid leaseGotTime \n");
-        UT_FAIL("Invalid leaseGotTime \n");
-    }
+    UT_ASSERT(pInfo.leaseGotTime >= 0);
 
     UT_LOG_DEBUG("Validating remainLeaseTime...");
     UT_LOG_DEBUG("pInfo.remainLeaseTime:%u\n", pInfo.remainLeaseTime);
-    if (pInfo.remainLeaseTime >= 0)
-    {
-        UT_LOG_DEBUG("valid remainLeaseTime \n");
-        UT_PASS("valid remainLeaseTime \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid remainLeaseTime \n");
-        UT_FAIL("Invalid remainLeaseTime \n");
-    }
+    UT_ASSERT(pInfo.remainLeaseTime >= 0);
 
     UT_LOG_DEBUG("Validating remainRenewTime...");
     UT_LOG_DEBUG("pInfo.remainRenewTime:%u\n", pInfo.remainRenewTime);
-    if (pInfo.remainRenewTime >= 0)
-    {
-        UT_LOG_DEBUG("valid remainRenewTime \n");
-        UT_PASS("valid remainRenewTime \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid remainRenewTime \n");
-        UT_FAIL("Invalid remainRenewTime \n");
-    }
+    UT_ASSERT(pInfo.remainRenewTime >= 0);
 
     UT_LOG_DEBUG("Validating remainRebindTime...");
     UT_LOG_DEBUG("pInfo.remainRebindTime:%u\n", pInfo.remainRebindTime);
-    if (pInfo.remainRebindTime >= 0)
-    {
-        UT_LOG_DEBUG("valid remainRebindTime \n");
-        UT_PASS("valid remainRebindTime \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid remainRebindTime \n");
-        UT_FAIL("Invalid remainRebindTime \n");
-    }
+    UT_ASSERT(pInfo.remainRebindTime >= 0);
 
-    // numOfDns
     UT_LOG("Validating numOfDns...");
     UT_LOG("pInfo.numOfDns:%d\n", pInfo.numOfDns);
-    if (pInfo.numOfDns >= 0)
-    {
-        UT_LOG("valid numOfDns \n");
-        UT_PASS("valid numOfDns \n");
-    }
-    else
-    {
-        UT_LOG("Invalid numOfDns \n");
-        UT_FAIL("Invalid numOfDns \n");
-    }
+    UT_ASSERT(pInfo.numOfDns >= 0);
 
     UT_LOG_DEBUG("dnsAddrList...");
     for (i = 0; i < MAX_IPV6_ADDR_LIST_SIZE; i++)
     {
         flg = ValdtIpV6(pInfo.dnsAddrList[i], IPV6_ADDR_SIZE);
         UT_LOG_DEBUG("flg:%d\n", flg);
-        if (flg == 1)
-        {
-            UT_LOG_DEBUG("valid dnsAddr ");
-            UT_PASS("valid dnsAddr \n");
-        }
-        else if (flg == 0)
-        {
-            UT_LOG_DEBUG("Invalid dnsAddr \n");
-            UT_FAIL("Invalid dnsAddr \n");
-        }
+        UT_ASSERT(flg == 1);
     }
 
     UT_ASSERT_EQUAL(status, STATUS_SUCCESS);
@@ -432,206 +295,70 @@ void test_l1_dhcp6cApi_positive_1_ecm_dhcp6c_get_info(void)
 
     UT_LOG("Validating smState...");
     UT_LOG("pInfo.smState:%d\n", pInfo.smState);
-    if (pInfo.smState >= 0)
-    {
-        UT_LOG("valid smState \n");
-        UT_PASS("valid smState \n");
-    }
-    else
-    {
-        UT_LOG("Invalid smState \n");
-        UT_FAIL("Invalid smState \n");
-    }
+    UT_ASSERT(pInfo.smState >= 0);
 
     UT_LOG("Validating configAttemps...");
     UT_LOG("pInfo.configAttemps:%d\n", pInfo.configAttemps);
-    if (pInfo.configAttemps >= 0)
-    {
-        UT_LOG("valid configAttemps \n");
-        UT_PASS("valid configAttemps \n");
-    }
-    else
-    {
-        UT_LOG("Invalid configAttemps \n");
-        UT_FAIL("Invalid configAttemps \n");
-    }
+    UT_ASSERT(pInfo.configAttemps >= 0);
 
     UT_LOG_DEBUG("Validating ipAddr ");
     flg = ValdtIpV6(pInfo.ipAddr, (sizeof(pInfo.ipAddr) / sizeof(unsigned char)));
     UT_LOG_DEBUG("flg:%d\n", flg);
-    if (flg == 1)
-    {
-        UT_LOG_DEBUG("valid ipAddr \n");
-        UT_PASS("valid ipAddr \n");
-    }
-    else if (flg == 0)
-    {
-        UT_LOG_DEBUG("Invalid ipAddr \n");
-        UT_FAIL("Invalid ipAddr \n");
-    }
+    UT_ASSERT(flg == 1);
 
     UT_LOG_DEBUG("Validating prefix ");
     flg = ValdtIpV6(pInfo.prefix, (sizeof(pInfo.prefix) / sizeof(unsigned char)));
     UT_LOG_DEBUG("flg:%d\n", flg);
-    if (flg == 1)
-    {
-        UT_LOG_DEBUG("valid prefix \n");
-        UT_PASS("valid prefix \n");
-    }
-    else if (flg == 0)
-    {
-        UT_LOG_DEBUG("Invalid prefix \n");
-        UT_FAIL("Invalid prefix \n");
-    }
+    UT_ASSERT(flg == 1);
 
-    // gw
     UT_LOG_DEBUG("Validating gw ");
     flg = ValdtIpV6(pInfo.gw, (sizeof(pInfo.gw) / sizeof(unsigned char)));
     UT_LOG_DEBUG("flg:%d\n", flg);
-    if (flg == 1)
-    {
-        UT_LOG_DEBUG("valid gw \n");
-        UT_PASS("valid gw \n");
-    }
-    else if (flg == 0)
-    {
-        UT_LOG_DEBUG("Invalid gw \n");
-        UT_FAIL("Invalid gw \n");
-    }
+    UT_ASSERT(flg == 1);
 
     UT_LOG_DEBUG("Validating dhcpServer ");
     flg = ValdtIpV6(pInfo.dhcpServer, (sizeof(pInfo.dhcpServer) / sizeof(unsigned char)));
     UT_LOG_DEBUG("flg:%d\n", flg);
-    if (flg == 1)
-    {
-        UT_LOG_DEBUG("valid dhcpServer \n");
-        UT_PASS("valid dhcpServer \n");
-    }
-    else if (flg == 0)
-    {
-        UT_LOG_DEBUG("Invalid dhcpServer \n");
-        UT_FAIL("Invalid dhcpServer \n");
-    }
+    UT_ASSERT(flg == 1);
 
     UT_LOG_DEBUG("Validating t1...");
     UT_LOG_DEBUG("pInfo.t1:%u\n", pInfo.t1);
-    if (pInfo.t1 >= 0)
-    {
-        UT_LOG_DEBUG("valid t1 \n");
-        UT_PASS("valid t1 \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid t1 \n");
-        UT_FAIL("Invalid t1 \n");
-    }
+    UT_ASSERT(pInfo.t1 >= 0);
 
     UT_LOG_DEBUG("Validating t2...");
     UT_LOG_DEBUG("pInfo.t2: %u\n", pInfo.t2);
-    if (pInfo.t2 >= 0)
-    {
-        UT_LOG_DEBUG("valid t2 \n");
-        UT_PASS("valid t2 \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid t2 \n");
-        UT_FAIL("Invalid t2 \n");
-    }
+    UT_ASSERT(pInfo.t2 >= 0);
 
     UT_LOG_DEBUG("Validating leasetime...");
     UT_LOG_DEBUG("pInfo.leaseTime:%u\n", pInfo.leaseTime);
-    if (pInfo.leaseTime >= 0)
-    {
-        UT_LOG_DEBUG("valid leaseTime \n");
-        UT_PASS("valid leaseTime \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid leaseTime \n");
-        UT_FAIL("Invalid leaseTime \n");
-    }
+    UT_ASSERT(pInfo.leaseTime >= 0);
 
     UT_LOG_DEBUG("Validating leaseGottime...");
     UT_LOG_DEBUG("pInfo.leaseGotTime:%u\n", pInfo.leaseGotTime);
-    if (pInfo.leaseGotTime >= 0)
-    {
-        UT_LOG_DEBUG("valid leaseGotTime \n");
-        UT_PASS("valid leaseGotTime \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid leaseGotTime \n");
-        UT_FAIL("Invalid leaseGotTime \n");
-    }
+    UT_ASSERT(pInfo.leaseGotTime >= 0);
 
     UT_LOG_DEBUG("Validating remainLeaseTime...");
     UT_LOG_DEBUG("pInfo.remainLeaseTime:%u\n", pInfo.remainLeaseTime);
-    if (pInfo.remainLeaseTime >= 0)
-    {
-        UT_LOG_DEBUG("valid remainLeaseTime \n");
-        UT_PASS("valid remainLeaseTime \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid remainLeaseTime \n");
-        UT_FAIL("Invalid remainLeaseTime \n");
-    }
+    UT_ASSERT(pInfo.remainLeaseTime >= 0);
 
     UT_LOG_DEBUG("Validating remainRenewTime...");
     UT_LOG_DEBUG("pInfo.remainRenewTime:%u\n", pInfo.remainRenewTime);
-    if (pInfo.remainRenewTime >= 0)
-    {
-        UT_LOG_DEBUG("valid remainRenewTime \n");
-        UT_PASS("valid remainRenewTime \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid remainRenewTime \n");
-        UT_FAIL("Invalid remainRenewTime \n");
-    }
+    UT_ASSERT(pInfo.remainRenewTime >= 0);
 
     UT_LOG_DEBUG("Validating remainRebindTime...");
     UT_LOG_DEBUG("pInfo.remainRebindTime:%u\n", pInfo.remainRebindTime);
-    if (pInfo.remainRebindTime >= 0)
-    {
-        UT_LOG_DEBUG("valid remainRebindTime \n");
-        UT_PASS("valid remainRebindTime \n");
-    }
-    else
-    {
-        UT_LOG_DEBUG("Invalid remainRebindTime \n");
-        UT_FAIL("Invalid remainRebindTime \n");
-    }
+    UT_ASSERT(pInfo.remainRebindTime >= 0);
 
     UT_LOG("Validating numOfDns...");
     UT_LOG("pInfo.numOfDns:%d\n", pInfo.numOfDns);
-    if (pInfo.numOfDns >= 0)
-    {
-        UT_LOG("valid numOfDns \n");
-        UT_PASS("valid numOfDns \n");
-    }
-    else
-    {
-        UT_LOG("Invalid numOfDns \n");
-        UT_FAIL("Invalid numOfDns \n");
-    }
+    UT_ASSERT(pInfo.numOfDns >= 0);
 
     UT_LOG_DEBUG("dnsAddrList...");
     for (i = 0; i < MAX_IPV6_ADDR_LIST_SIZE; i++)
     {
         flg = ValdtIpV6(pInfo.dnsAddrList[i], IPV6_ADDR_SIZE);
         UT_LOG_DEBUG("flg:%d\n", flg);
-        if (flg == 1)
-        {
-            UT_LOG_DEBUG("valid dnsAddr  \n");
-            UT_PASS("valid dnsAddr \n");
-        }
-        else if (flg == 0)
-        {
-            UT_LOG_DEBUG("Invalid dnsAddr\n");
-            UT_FAIL("Invalid dnsAddr \n");
-        }
+        UT_ASSERT(flg == 1);
     }
 
     UT_ASSERT_EQUAL(result, STATUS_SUCCESS);
