@@ -122,32 +122,16 @@ void test_l1_dhcp6cApi_positive1_ert_dhcp6c_get_info(void)
     int i = 0;
     memset(&pInfo, 0, sizeof(dhcp6cInfo_t));
 
-    char profileIfName[UT_KVP_MAX_ELEMENT_SIZE];
-
-    UT_KVP_PROFILE_GET_STRING("dhcp6c/config/ERouter_DHCPv6/ifName", profileIfName);
-    UT_LOG_DEBUG("Profile ifname: %s", profileIfName);
-
     UT_LOG_DEBUG("Invoking ert_dhcp6c_get_info with pInfo = valid memory address");
     status = ert_dhcp6c_get_info(&pInfo);
     UT_LOG_DEBUG("return status : %d ", status);
     UT_LOG_DEBUG("Validating ifname...");
 
-    UT_LOG_DEBUG("pInfo.ifname: %s", pInfo.ifname);
-
     flg = null_check(pInfo.ifname);
     if (flg == 1)
     {
-        UT_LOG_DEBUG("ifname  is : %s", pInfo.ifname);
-        if (!strcmp(pInfo.ifname, profileIfName))
-        {
-            UT_LOG_DEBUG("ifname validation success");
-            UT_PASS("ifname validation success");
-        }
-        else
-        {
-            UT_LOG_DEBUG("ifname validation failed");
-            UT_FAIL("ifname validation failed");
-        }
+        UT_LOG_DEBUG("pInfo.ifname: %s", pInfo.ifname);
+        UT_ASSERT_KVP_EQUAL_PROFILE_STRING(pInfo.ifname, "dhcp6c/config/ERouter_DHCPv6/ifName");
     }
     else
     {
@@ -428,10 +412,6 @@ void test_l1_dhcp6cApi_positive_1_ecm_dhcp6c_get_info(void)
 
     memset(&pInfo, 0, sizeof(dhcp6cInfo_t));
 
-    char profileIfName[UT_KVP_MAX_ELEMENT_SIZE];
-    UT_KVP_PROFILE_GET_STRING("dhcp6c/config/ecm_DHCPv6/ifName", profileIfName);
-    UT_LOG_DEBUG("Profile ifname: %s", profileIfName);
-
     UT_LOG_DEBUG("Invoking ecm_dhcp6c_get_info with pInfo = %p", &pInfo);
     result = ecm_dhcp6c_get_info(&pInfo);
     UT_LOG_DEBUG("Expected Result: STATUS_SUCCESS");
@@ -441,17 +421,8 @@ void test_l1_dhcp6cApi_positive_1_ecm_dhcp6c_get_info(void)
     flg = null_check(pInfo.ifname);
     if (flg == 1)
     {
-        UT_LOG_DEBUG("ifname  is : %s", pInfo.ifname);
-        if (!strcmp(pInfo.ifname, profileIfName))
-        {
-            UT_LOG_DEBUG("ifname validation success");
-            UT_PASS("ifname validation success");
-        }
-        else
-        {
-            UT_LOG_DEBUG("ifname validation failed");
-            UT_FAIL("ifname validation failed");
-        }
+        UT_LOG_DEBUG("pInfo.ifname: %s", pInfo.ifname);
+        UT_ASSERT_KVP_EQUAL_PROFILE_STRING(pInfo.ifname, "dhcp6c/config/ecm_DHCPv6/ifName");
     }
     else
     {
